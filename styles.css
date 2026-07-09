@@ -256,3 +256,36 @@ input:focus, select:focus, textarea:focus { border-color: var(--green); }
   .mobile-sticky-bar a { display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; min-height: 58px; border-radius: 16px; color: var(--text); font-size: 12px; font-weight: 850; }
   .mobile-sticky-bar a.main { background: var(--green); color: white; }
 }
+/* Logo Ninfea B&B */
+.brand-logo {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: transparent;
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: block;
+}
+
+@media (max-width: 780px) {
+  .brand-logo {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+  }
+
+  .brand-text strong {
+    font-size: 23px;
+  }
+}
