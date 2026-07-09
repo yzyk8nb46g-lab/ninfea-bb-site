@@ -593,3 +593,46 @@ input:focus, select:focus, textarea:focus { border-color: var(--green); }
     font-size: 24px;
   }
 }
+/* FIX DEFINITIVO VISIBILITÀ HAMBURGER MENU */
+@media (max-width: 1250px) {
+  .desktop-nav,
+  .header-actions {
+    display: none !important;
+  }
+
+  .menu-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    border-radius: 999px !important;
+    border: 1px solid var(--line) !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    color: var(--dark) !important;
+    cursor: pointer !important;
+    box-shadow: 0 10px 30px rgba(31, 42, 38, 0.08) !important;
+  }
+
+  .header-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 18px !important;
+  }
+}
+
+@media (min-width: 1251px) {
+  .menu-btn {
+    display: none !important;
+  }
+
+  .desktop-nav {
+    display: flex !important;
+  }
+
+  .header-actions {
+    display: flex !important;
+  }
+}
