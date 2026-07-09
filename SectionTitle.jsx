@@ -1,26 +1,9 @@
-import { Link } from "react-router-dom";
-import { ChevronRight } from "lucide-react";
-
-export function ButtonLink({ to, href, children, variant = "primary", className = "" }) {
-  const classes = `btn btn-${variant} ${className}`;
-  const content = (
-    <>
-      <span>{children}</span>
-      {variant === "primary" && <ChevronRight size={18} />}
-    </>
-  );
-
-  if (href) {
-    return (
-      <a className={classes} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
-        {content}
-      </a>
-    );
-  }
-
+export default function SectionTitle({ eyebrow, title, text, align = "center" }) {
   return (
-    <Link className={classes} to={to || "/"}>
-      {content}
-    </Link>
+    <div className={`section-title section-title--${align}`}>
+      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+      <h2>{title}</h2>
+      {text && <p>{text}</p>}
+    </div>
   );
 }

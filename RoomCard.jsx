@@ -1,41 +1,23 @@
-import { Link } from "react-router-dom";
-import { business, whatsappLink } from "../data.js";
-import { ButtonLink } from "./Buttons.jsx";
+import { Users } from "lucide-react";
+import { whatsappLink } from "./data.js";
 
-export default function Footer() {
+export default function RoomCard({ room }) {
   return (
-    <footer className="site-footer">
-      <div className="container footer-grid">
-        <div className="footer-brand">
-          <h3>{business.name}</h3>
-          <p>Bed & Breakfast a San Giovanni Teatino, in posizione comoda tra Chieti e Pescara.</p>
-          <ButtonLink href={whatsappLink("Ciao Ninfea B&B, vorrei verificare disponibilità per un soggiorno.")}>Prenota ora</ButtonLink>
-        </div>
-
-        <div>
-          <h4>Menu</h4>
-          <Link to="/camere">Camere</Link>
-          <Link to="/servizi">Servizi</Link>
-          <Link to="/posizione">Posizione</Link>
-          <Link to="/gallery">Gallery</Link>
-          <Link to="/contatti">Contatti</Link>
-        </div>
-
-        <div>
-          <h4>Contatti</h4>
-          <a href={business.phoneHref}>{business.phoneDisplay}</a>
-          <a href={business.mapsLink} target="_blank" rel="noreferrer">{business.address}</a>
-          <p>Check-in: dalle {business.checkIn}</p>
-        </div>
+    <article className="room-card">
+      <div className="room-card__image">
+        <img src={room.image} alt={room.title} />
       </div>
-
-      <div className="container footer-bottom">
-        <p>© {new Date().getFullYear()} {business.name}. Tutti i diritti riservati.</p>
-        <div>
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          <Link to="/cookie-policy">Cookie Policy</Link>
+      <div className="room-card__body">
+        <div className="room-card__topline"><Users size={17} /> {room.guests}</div>
+        <h3>{room.title}</h3>
+        <p>{room.description}</p>
+        <div className="tags">
+          {room.features.map((feature) => <span key={feature}>{feature}</span>)}
         </div>
+        <a className="text-link" href={whatsappLink(`Ciao Ninfea B&B, vorrei informazioni sulla ${room.title}.`)}>
+          Richiedi disponibilità →
+        </a>
       </div>
-    </footer>
+    </article>
   );
 }

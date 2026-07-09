@@ -1,66 +1,43 @@
-import PageHero from "../components/PageHero.jsx";
-import SectionTitle from "../components/SectionTitle.jsx";
-import RoomCard from "../components/RoomCard.jsx";
-import { ButtonLink } from "../components/Buttons.jsx";
-import { images, rooms, business, whatsappLink } from "../data.js";
+import PageHero from "./PageHero.jsx";
+import SectionTitle from "./SectionTitle.jsx";
+import { ButtonLink } from "./Buttons.jsx";
+import { images, whatsappLink } from "./data.js";
 
-export default function Rooms() {
+const gallery = [
+  [images.exterior, "Esterno"],
+  [images.room1, "Camera matrimoniale"],
+  [images.room2, "Camera comfort"],
+  [images.room3, "Soluzione famiglia"],
+  [images.breakfast, "Colazione"],
+  [images.bathroom, "Bagno"],
+  [images.detail, "Dettagli"],
+  [images.location, "Dintorni"],
+];
+
+export default function Gallery() {
   return (
     <>
       <PageHero
-        eyebrow="Camere"
-        title="Le camere del Ninfea B&B"
-        text="Spazi semplici, curati e accoglienti per un soggiorno pratico e confortevole."
-        image={images.room1}
-        ctaLabel="Verifica disponibilità"
-        ctaHref={whatsappLink("Ciao Ninfea B&B, vorrei verificare disponibilità delle camere.")}
+        eyebrow="Gallery"
+        title="Scopri gli ambienti del Ninfea B&B"
+        text="Foto della struttura, delle camere e dei dettagli che raccontano l’accoglienza del B&B."
+        image={images.exterior}
+        ctaLabel="Prenota il tuo soggiorno"
+        ctaHref={whatsappLink("Ciao Ninfea B&B, ho visto la gallery e vorrei verificare disponibilità.")}
       />
 
       <section className="section">
         <div className="container">
-          <SectionTitle
-            eyebrow="Soluzioni"
-            title="Scegli la sistemazione più adatta al tuo soggiorno."
-            text="I nomi e le descrizioni possono essere aggiornati con le camere reali della struttura."
-          />
-          <div className="room-grid">
-            {rooms.map((room) => <RoomCard key={room.title} room={room} />)}
+          <SectionTitle eyebrow="Immagini" title="Gallery fotografica" text="Sostituisci queste immagini con foto reali della struttura prima della pubblicazione." />
+          <div className="gallery-grid">
+            {gallery.map(([src, alt], index) => (
+              <figure key={src} className={index === 0 || index === 3 ? "large" : ""}>
+                <img src={src} alt={alt} />
+                <figcaption>{alt}</figcaption>
+              </figure>
+            ))}
           </div>
-        </div>
-      </section>
-
-      <section className="section light-section">
-        <div className="container split-grid">
-          <div>
-            <SectionTitle
-              align="left"
-              eyebrow="Dotazioni"
-              title="Tutto l’essenziale per un soggiorno comodo."
-              text="Le camere sono pensate per offrire praticità, pulizia e tranquillità."
-            />
-            <div className="service-list">
-              <span>Bagno privato</span>
-              <span>Wi-Fi</span>
-              <span>Climatizzazione</span>
-              <span>Biancheria</span>
-              <span>Pulizia</span>
-              <span>Contatto diretto</span>
-            </div>
-            <ButtonLink href={business.phoneHref} variant="secondary">Chiama per dettagli</ButtonLink>
-          </div>
-          <div className="image-grid-2">
-            <img src={images.room2} alt="Camera Ninfea B&B" />
-            <img src={images.bathroom} alt="Bagno Ninfea B&B" />
-          </div>
-        </div>
-      </section>
-
-      <section className="section faq-section">
-        <div className="container narrow">
-          <SectionTitle eyebrow="FAQ" title="Domande frequenti sulle camere" />
-          <details open><summary>A che ora è il check-in?</summary><p>Il check-in è indicato dalle {business.checkIn}. Per esigenze particolari è consigliato contattare la struttura.</p></details>
-          <details><summary>È possibile prenotare direttamente?</summary><p>Sì, il sito è pensato per favorire il contatto diretto tramite telefono o WhatsApp.</p></details>
-          <details><summary>Le camere hanno bagno privato?</summary><p>Inserire qui l’informazione definitiva in base alla dotazione reale della struttura.</p></details>
+          <div className="center-space"><ButtonLink href={whatsappLink("Ciao Ninfea B&B, vorrei verificare disponibilità per un soggiorno.")}>Verifica disponibilità</ButtonLink></div>
         </div>
       </section>
     </>

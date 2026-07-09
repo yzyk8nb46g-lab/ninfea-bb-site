@@ -1,16 +1,13 @@
-import SectionTitle from "../components/SectionTitle.jsx";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App.jsx";
+import "./styles.css";
 
-export default function Cookie() {
-  return (
-    <section className="legal-page">
-      <div className="container narrow">
-        <SectionTitle eyebrow="Legale" title="Cookie Policy" text="Pagina segnaposto da sostituire con testo legale definitivo." />
-        <div className="legal-content">
-          <h2>Informativa cookie</h2>
-          <p>Inserire qui la cookie policy completa e il riferimento al banner cookie utilizzato.</p>
-          <p>Prima della pubblicazione vanno configurati eventuali cookie, analytics e strumenti di tracciamento.</p>
-        </div>
-      </div>
-    </section>
-  );
-}
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);

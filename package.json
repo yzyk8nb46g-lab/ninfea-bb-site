@@ -1,50 +1,20 @@
-import { Routes, Route, useLocation } from "react-router-dom";
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import MobileBar from "./components/MobileBar.jsx";
-import Home from "./pages/Home.jsx";
-import Rooms from "./pages/Rooms.jsx";
-import Services from "./pages/Services.jsx";
-import Location from "./pages/Location.jsx";
-import Gallery from "./pages/Gallery.jsx";
-import Reviews from "./pages/Reviews.jsx";
-import Contact from "./pages/Contact.jsx";
-import Privacy from "./pages/Privacy.jsx";
-import Cookie from "./pages/Cookie.jsx";
-import NotFound from "./pages/NotFound.jsx";
-import { useEffect } from "react";
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
-
-export default function App() {
-  return (
-    <>
-      <ScrollToTop />
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/camere" element={<Rooms />} />
-          <Route path="/servizi" element={<Services />} />
-          <Route path="/posizione" element={<Location />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/recensioni" element={<Reviews />} />
-          <Route path="/contatti" element={<Contact />} />
-          <Route path="/privacy-policy" element={<Privacy />} />
-          <Route path="/cookie-policy" element={<Cookie />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
-      <Footer />
-      <MobileBar />
-    </>
-  );
+{
+  "name": "ninfea-bb-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "latest",
+    "lucide-react": "latest"
+  },
+  "devDependencies": {}
 }
